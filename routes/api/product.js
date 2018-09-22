@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-// const db = require('../../config/database');
+
+const sequelize = require('../../config/database/db')
+const product = require('../../models/Product');
 
 /**configuration for JWT */
 const jwt =require('jsonwebtoken');
@@ -13,23 +15,18 @@ const jwt =require('jsonwebtoken');
 router.post('/tambahData', verifyToken, (req,res)=>{
     jwt.verify(req.token, 'secretkey', (err,authData)=>{
         if (err){
-            res.sendStatus(403);
-    
+            return res.status(403).json({err: err});    
         }else{
-            res.json({
-                authData
-            })
-            // var nameProd =req.body.nameProd;
-            // var codeProd =req.body.codeProd;                
-            // let sql = `INSERT INTO tbl_product VALUES ("${''}","${nameProd}","${codeProd}")`;
-            // db.query(sql, (err,result)=>{
-            //     if (err){
-            //         throw err;
-            //     }else{
-            //         res.send('data berhasil di input')
-            //     }
-            // })
-            
+            var nameProd = req.body.productName
+            sequelize.sync().then(()=>{
+                product.create({
+                    name: nameProd
+                }).then((result)=>{
+                    if(result){                    
+                        res.status(200).json({msg: 'insert data success'})                    
+                    }
+                })   
+            })         
         }
     })   
 })

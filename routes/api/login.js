@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-// const db = require('../../config/database');
 
 /**configuration for JWT */
 const jwt =require('jsonwebtoken');
 
-// authorization
+/** authorization config*/
 const verifyToken= require ('../../config/verifyToken')
 
 /** route for login validation
@@ -35,7 +34,7 @@ router.post('/login', (req,res)=>{
            console.log('berhasil masuk')
         //    var userID= userlogin[i].id_admin;
         //           res.send(username);
-                jwt.sign({userlogin}, 'secretkey', {expiresIn: '30s'}, (err, token)=>{
+                jwt.sign({userlogin}, 'secretkey', {expiresIn: '3600s'}, (err, token)=>{
                    res.json({
                         token: `Bearer `+ token,
                         msg: `Login success`

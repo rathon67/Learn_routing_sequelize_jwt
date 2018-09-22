@@ -1,4 +1,4 @@
-/** configuration with express */
+/** configuration with express (server)*/
 const express =require('express');
 const app = express();
 
