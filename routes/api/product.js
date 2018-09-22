@@ -32,63 +32,70 @@ router.post('/tambahData', verifyToken, (req,res)=>{
 })
     
     //section edit data
-    router.get('/editdata/:id', (req, res) => {
-        jtw.verify(req.token, 'secretkey', (err,authData)=>{
+    router.post('/editdata/:id', verifyToken, (req, res) => {
+        jwt.verify(req.token, 'secretkey', (err,authData)=>{
             if (err){
-                res.sendStatus(403);
-        
+                throw err;        
             }else{
-                var grabData= `SELECT * FROM tbl_product WHERE id_product = ${req.params.id}`;
-                db.query(grabData, (err, result) => {
-                    if(err){
-                        throw err;
-                    }else {
-                        res.send(result);
-                    }
+                // res.sendStatus('token di terima')
+                var updateProduct = req.body.newProduct
+                var id =req.params.id
+                sequelize.sync().then(()=>{
+                    product.update({
+                        name : updateProduct
+                    },
+                    {
+                        where: {
+                            id_product: id
+                        }
+                    }).then((result)=>{
+                        if(result){
+                            res.status(200).json({ msg: `data has been deleted which its id is ${id}`})
+                        }
+                    })
                 })
             }
         })
     })
-        //  console.log(req.params.id);
     
-    
-    router.post('/updateProduct', (req,res)=>{
-        jtw.verify(req.token, 'secretkey', (err,authData)=>{
+    /**section */
+    router.post('/updateProduct', verifyToken, (req,res)=>{
+        jwt.verify(req.token, 'secretkey', (err,authData)=>{
             if (err){
-                throw err;
-            }else{
-                var id = req.body.id;                
-                var name =req.body.nameProd;
-                var code =req.body.codeProd;
-            
-                var updateProduct =` UPDATE tbl_product SET  name="${name}", code="${code}" WHERE id_product="${id}"`;
-                db.query(updateProduct, (err,result)=>{
-                    if (err){
-                        throw err;
-                    }else{
-                        res.send(`1`)
-                    }
+                return res.status(403).json({err: err});
+            }else{                                
+                var updateProduct =req.body.nameProd;
+                sequelize.sync().then(()=>{
+                    product.update({
+                        name: updateProduct
+                    }).then((result)=>{
+                        if(result){
+                            res.status(200).json({msg: 'update data success'})
+                        }
+                    })
                 })
+
+                
             }
         })        
     })
     
     //delete section
-    router.post('/hapusdata', (req,res) => {
-        jtw.verify(req.token, 'secretkey', (err,authData)=>{
+    router.get('/hapusdata/:id', verifyToken, (req,res) => {
+        jwt.verify(req.token, 'secretkey', (err,authData)=>{
             if(err){
-                throw err;
-            }else {
-                var id=req.body.id;    
-                //  console.log(id)
-                 var hapusData =`DELETE FROM product WHERE id_motor=?`;
-                 db.query(hapusData,id, (err,hasil) =>{
-                     if (err){
-                         throw err;
-                     }else{
-                         res.send('data berhasil di hapus')
-                     }
-                 })
+                return res.status(403).json({err: err});
+            }else {                
+                var id=req.params.id    
+                sequelize.sync().then(()=>{
+                    product.destroy({                    
+                        where: {id_product : id}
+                    }).then((result)=>{
+                        if(result){
+                            res.status(200).json({ msg: `data has been deleted which its id is ${id}` })
+                        }
+                    })
+                })
             }
         })
        
