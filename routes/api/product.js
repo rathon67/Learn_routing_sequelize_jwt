@@ -6,13 +6,13 @@ const product = require('../../models/Product');
 
 /**configuration for JWT */
 const jwt =require('jsonwebtoken');
-
+const verifyToken= require ('../../config/verifyToken')
 /**@route for product 
  * @desc Product CRUD
  */
 
 //section tambah data
-router.post('/tambahData', verifyToken, (req,res)=>{
+router.post('/tambahProd', verifyToken, (req,res)=>{
     jwt.verify(req.token, 'secretkey', (err,authData)=>{
         if (err){
             return res.status(403).json({err: err});    
@@ -31,13 +31,12 @@ router.post('/tambahData', verifyToken, (req,res)=>{
     })   
 })
     
-    //section edit data
+    /** update data with params as condition (where) */
     router.post('/editdata/:id', verifyToken, (req, res) => {
         jwt.verify(req.token, 'secretkey', (err,authData)=>{
             if (err){
                 throw err;        
-            }else{
-                // res.sendStatus('token di terima')
+            }else{                
                 var updateProduct = req.body.newProduct
                 var id =req.params.id
                 sequelize.sync().then(()=>{
@@ -50,7 +49,7 @@ router.post('/tambahData', verifyToken, (req,res)=>{
                         }
                     }).then((result)=>{
                         if(result){
-                            res.status(200).json({ msg: `data has been deleted which its id is ${id}`})
+                            res.status(200).json({ msg: `data has been updated which its id is ${id}`})
                         }
                     })
                 })
@@ -58,29 +57,9 @@ router.post('/tambahData', verifyToken, (req,res)=>{
         })
     })
     
-    /**section */
-    router.post('/updateProduct', verifyToken, (req,res)=>{
-        jwt.verify(req.token, 'secretkey', (err,authData)=>{
-            if (err){
-                return res.status(403).json({err: err});
-            }else{                                
-                var updateProduct =req.body.nameProd;
-                sequelize.sync().then(()=>{
-                    product.update({
-                        name: updateProduct
-                    }).then((result)=>{
-                        if(result){
-                            res.status(200).json({msg: 'update data success'})
-                        }
-                    })
-                })
-
-                
-            }
-        })        
-    })
     
-    //delete section
+    
+    /** delete section with params as condition (where) */
     router.get('/hapusdata/:id', verifyToken, (req,res) => {
         jwt.verify(req.token, 'secretkey', (err,authData)=>{
             if(err){

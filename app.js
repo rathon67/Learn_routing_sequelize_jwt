@@ -1,3 +1,11 @@
+/**@task
+ * //FORMAT OF TOKEN 
+    buat routing
+    buat config
+    buat models
+    pelajari sequelize.
+ */
+
 /** configuration with express (server)*/
 const express =require('express');
 const app = express();
@@ -13,24 +21,17 @@ app.use(bodyParser.json())
 
 /**configuration for route */
 const dashboard = require('./routes/api/dashboard');
-// const detailproduct = require('./routes/api/detailproduct');
+const codeproduct = require('./routes/api/codeproduct');
 const login = require('./routes/api/login');
 const product = require('./routes/api/product');
+const viewproduct = require('./routes/api/viewproduct');
+
 
 app.use('/api/dashboard/', dashboard)
-// app.use('/api/', detailproduct)
+app.use('/api/', codeproduct)
 app.use('/api/', login)
 app.use('/api/', product)
-
-/**database configuration */
-
-
-// const passport = require('passport');
-// app.use(passport.initialize()); //Passport middleware
-// require('./config/passport')(passport)
-
-
-
+app.use('/api/', viewproduct)
 
 
 /**configuration for port */

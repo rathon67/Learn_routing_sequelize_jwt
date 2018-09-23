@@ -1,8 +1,4 @@
 
-   //FORMAT OF TOKEN pelajari sequelize.
-        //buat routing
-        //config
-        //model
         //Autorization : Bearer <access_token>
         module.exports = verifyToken = (req,res, next)=>{
             //get auth header value

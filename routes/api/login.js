@@ -34,7 +34,7 @@ router.post('/login', (req,res)=>{
            console.log('berhasil masuk')
         //    var userID= userlogin[i].id_admin;
         //           res.send(username);
-                jwt.sign({userlogin}, 'secretkey', {expiresIn: '3600s'}, (err, token)=>{
+                jwt.sign({userlogin}, 'secretkey', {expiresIn: '1day'}, (err, token)=>{
                    res.json({
                         token: `Bearer `+ token,
                         msg: `Login success`
