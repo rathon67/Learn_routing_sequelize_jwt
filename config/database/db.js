@@ -2,6 +2,7 @@
 const sequelizeC =require('sequelize');
 const operator = sequelizeC.Op
 
+/**setting up db on sequelize */
 const sequelize = new sequelizeC('db_test_meteor', 'root', '',{
     host:'localhost',
     port: 3306,

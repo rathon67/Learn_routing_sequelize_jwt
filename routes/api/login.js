@@ -11,9 +11,10 @@ const verifyToken= require ('../../config/verifyToken')
  * @desc login validation and sign json web token
  */
 
-router.post('/login', (req,res)=>{    
-
-    const userlogin = [
+ 
+//The login section is to create a token using jwt 
+router.post('/login', (req,res)=>{  
+const userlogin = [
     {
         id : 'userid01',
         username : 'rathon',
@@ -25,15 +26,11 @@ router.post('/login', (req,res)=>{
         password : 'mantap1234'
     }
 ]        
-    var username =req.body.username;
-    console.log(username)
-    var userpassword=req.body.password;
-    console.log(userpassword)
+    var username =req.body.username;    
+    var userpassword=req.body.password;    
     for(var i = 0; i<userlogin.length; i++){
         if(username === userlogin[i].username && userpassword === userlogin[i].password){
-           console.log('berhasil masuk')
-        //    var userID= userlogin[i].id_admin;
-        //           res.send(username);
+           console.log('berhasil masuk')      
                 jwt.sign({userlogin}, 'secretkey', {expiresIn: '1day'}, (err, token)=>{
                    res.json({
                         token: `Bearer `+ token,
@@ -47,8 +44,8 @@ router.post('/login', (req,res)=>{
     }
 })
 
-router.get('/testproteksi', verifyToken, (req, res) => {
-    // res.json({msg: 'Masuk pak eko'})
+// test section, first test for authorization
+router.get('/testproteksi', verifyToken, (req, res) => {    
     jwt.verify(req.token, 'secretkey', (err, authData)=>{
         if (err){
             res.sendStatus(403)

@@ -12,7 +12,7 @@ const verifyToken= require ('../../config/verifyToken')
  * @desc code product 
  *
  */
-/** section tambah data product code */
+/** section adding data product code */
 router.post('/tambahcodeP', verifyToken, (req,res)=>{
     jwt.verify(req.token, 'secretkey', (err,authData)=>{
         if (err){
@@ -34,7 +34,7 @@ router.post('/tambahcodeP', verifyToken, (req,res)=>{
     })   
 })
 
-/**section update product code */
+/**section update product code with params */
 router.post('/updatedataCode/:id', verifyToken, (req,res)=>{
     jwt.verify(req.token, 'secretkey', (err,authData)=>{
         if(err){

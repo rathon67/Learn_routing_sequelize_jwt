@@ -35,7 +35,7 @@ router.post('/tambahProd', verifyToken, (req,res)=>{
     router.post('/editdata/:id', verifyToken, (req, res) => {
         jwt.verify(req.token, 'secretkey', (err,authData)=>{
             if (err){
-                throw err;        
+                return res.status(403).json({err: err});         
             }else{                
                 var updateProduct = req.body.newProduct
                 var id =req.params.id
