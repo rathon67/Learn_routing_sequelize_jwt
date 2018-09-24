@@ -7,7 +7,7 @@ var Viewproduct = sequelize.define('tbl_product_category', {
         primaryKey : true,
         autoIncrement : true
     },
-    codeproduct_id: {
+    product_id: {
         type : sequelizeC.INTEGER,
     },
     category_id:

@@ -11,23 +11,26 @@ const codeproduct = require('../../models/Codeproduct');
 /** creating relation */
 
 //
-codeproduct.belongsToMany(category, {
+product.belongsToMany(category, {
     through:viewproduct,
-    foreignKey:'codeproduct_id'
+    foreignKey:'product_id'
 })
 //
-category.belongsToMany(codeproduct,{
+category.belongsToMany(product,{
     through:viewproduct,
     foreignKey:'category_id'
 })
 
-// codeproduct.hasMany(product,{
-//     foreignKey:'product_id'
-// })
 
-// product.hasOne(codeproduct,{
-//     foreignKey:'product_id'
-// })
+product.hasMany(codeproduct,{
+    foreignKey:'product_id'
+})
+
+codeproduct.belongsTo(product,{
+    foreignKey:'product_id'
+})
+
+
 
 const model1= {
     productModel :product,
