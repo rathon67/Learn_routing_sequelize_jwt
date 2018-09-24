@@ -1,0 +1,499 @@
+{
+	"info": {
+		"_postman_id": "a8198374-cda3-4a27-8b20-07a56df7f520",
+		"name": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8008/api/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "rathon",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "asdf1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/testproteksi",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc1MTk3MSwiZXhwIjoxNTM3ODM4MzcxfQ.G8FQWg55fgoFMa31TtYuXfjFmgaLTxlp9xmgvYH7L70"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzYxNDUzMywiZXhwIjoxNTM3NjE4MTMzfQ.XQXd5cAd9sofdjWllqyqE5Zt0Jiz5D7y7FkioU2dYKI",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/testproteksi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"testproteksi"
+					]
+				},
+				"description": "first testing jwt authorization"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/tambahProd",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc1MTk3MSwiZXhwIjoxNTM3ODM4MzcxfQ.G8FQWg55fgoFMa31TtYuXfjFmgaLTxlp9xmgvYH7L70"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productName",
+							"value": "Brand Levis",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/tambahProd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"tambahProd"
+					]
+				},
+				"description": " verify jwt and adding product with sequelize"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/hapusdata/14",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc1MTk3MSwiZXhwIjoxNTM3ODM4MzcxfQ.G8FQWg55fgoFMa31TtYuXfjFmgaLTxlp9xmgvYH7L70"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productid",
+							"value": "16",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/hapusdata/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"hapusdata",
+						"4"
+					]
+				},
+				"description": "verify token => delete or destroy product using params(id) as condition"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/editdata/13",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc1MTk3MSwiZXhwIjoxNTM3ODM4MzcxfQ.G8FQWg55fgoFMa31TtYuXfjFmgaLTxlp9xmgvYH7L70"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "newProduct",
+							"value": "Brand Wranglers",
+							"description": "update nama produk berdasarkan params",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/editdata/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"editdata",
+						"1"
+					]
+				},
+				"description": "verify token and update product using params(id) as condition"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/tambahcodeP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc1MTk3MSwiZXhwIjoxNTM3ODM4MzcxfQ.G8FQWg55fgoFMa31TtYuXfjFmgaLTxlp9xmgvYH7L70"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productID",
+							"value": "45",
+							"description": "isi sesuai dengan id product",
+							"type": "text"
+						},
+						{
+							"key": "codeProd",
+							"value": "ELE0022",
+							"description": "isi dengan string ex: ELE001",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/tambahcodeP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"tambahcodeP"
+					]
+				},
+				"description": "verifying token and adding code product with sequelize"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/updatedataCode/2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc1MTk3MSwiZXhwIjoxNTM3ODM4MzcxfQ.G8FQWg55fgoFMa31TtYuXfjFmgaLTxlp9xmgvYH7L70"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productID",
+							"value": "2",
+							"description": "isi sesuai dengan id product yang ingin di update",
+							"type": "text"
+						},
+						{
+							"key": "codeProduct",
+							"value": "ELE002",
+							"description": "isi kodeproduct baru ex ELE002",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/updatedataCode/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"updatedataCode",
+						"2"
+					]
+				},
+				"description": "verify token and update data code product "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/hapusdataCodeP/2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc1MTk3MSwiZXhwIjoxNTM3ODM4MzcxfQ.G8FQWg55fgoFMa31TtYuXfjFmgaLTxlp9xmgvYH7L70"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8008/api/hapusdataCodeP/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"hapusdataCodeP",
+						"5"
+					]
+				},
+				"description": "delete data on code product with params"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/tambahdataView",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc1MTk3MSwiZXhwIjoxNTM3ODM4MzcxfQ.G8FQWg55fgoFMa31TtYuXfjFmgaLTxlp9xmgvYH7L70"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productID",
+							"value": "6",
+							"description": "isi sesuai data id yg tersedia di db",
+							"type": "text"
+						},
+						{
+							"key": "categoryID",
+							"value": "6",
+							"description": "isi sesuai data id yg tersedia di db",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/tambahdataView",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"tambahdataView"
+					]
+				},
+				"description": "adding data into tbl product_category"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/lihatdataView",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc1MTk3MSwiZXhwIjoxNTM3ODM4MzcxfQ.G8FQWg55fgoFMa31TtYuXfjFmgaLTxlp9xmgvYH7L70"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8008/api/lihatdataView",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"lihatdataView"
+					]
+				},
+				"description": "view data with relation table."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/editdata/procat/3",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc1MTk3MSwiZXhwIjoxNTM3ODM4MzcxfQ.G8FQWg55fgoFMa31TtYuXfjFmgaLTxlp9xmgvYH7L70"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "productID",
+							"value": "5",
+							"description": "update product id",
+							"type": "text"
+						},
+						{
+							"key": "categoryID",
+							"value": "3",
+							"description": "update category id",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8008/api/editdata/procat/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"editdata",
+						"procat",
+						"8"
+					]
+				},
+				"description": "edit data on tbl_product_category"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8008/api/hapusdata/procat/3",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybG9naW4iOlt7ImlkIjoidXNlcmlkMDEiLCJ1c2VybmFtZSI6InJhdGhvbiIsInBhc3N3b3JkIjoiYXNkZjEyMzQifSx7ImlkIjoidXNlcmlkMDIiLCJ1c2VybmFtZSI6InVkaW4iLCJwYXNzd29yZCI6Im1hbnRhcDEyMzQifV0sImlhdCI6MTUzNzc0NzU0OCwiZXhwIjoxNTM3ODMzOTQ4fQ.FvEjMzGNh-Mf-40GWrgCdu2d63pketfxKa1EgWeYLYw"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8008/api/hapusdata/procat/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8008",
+					"path": [
+						"api",
+						"hapusdata",
+						"procat",
+						"9"
+					]
+				},
+				"description": "delete data on tbl_product_catagory with condition (where) using params"
+			},
+			"response": []
+		}
+	]
+}
