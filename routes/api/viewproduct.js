@@ -14,13 +14,7 @@ const verifyToken= require ('../../config/verifyToken')
 
 
 
-//section View Data Join from tbl_product_category
-    /** SELECT tbl_product_category.id_procat, tbl_codeproduct.code_product AS kode_product, tbl_product.name 
-     * AS Nama_product, master_category.name AS category
-    FROM tbl_product_category
-    INNER JOIN tbl_codeproduct ON tbl_product_category.codeproduct_id = tbl_codeproduct.id_codeprod
-    INNER JOIN master_category ON tbl_product_category.category_id = master_category.id_category
-    LEFT OUTER JOIN tbl_product ON tbl_codeproduct.product_id = tbl_product.id_product */
+//section View Data Join from tbl_product_category    
 
 router.get('/lihatdataView', verifyToken, (req,res)=>{
     jwt.verify(req.token, 'secretkey', (err,authData)=>{
@@ -36,8 +30,7 @@ router.get('/lihatdataView', verifyToken, (req,res)=>{
                         },
                         {
                             model:model1.codeproductModel
-                        }
-                        
+                        }                        
                     ]
                 }).then((result)=>{                    
                     res.status(200).json(result); 
@@ -54,8 +47,7 @@ router.post('/tambahdataView', verifyToken, (req,res)=>{
             return res.status(403).json({err: err});    
         }else{
             var productID =req.body.productID;
-            var categoryID = req.body.categoryID;
-            
+            var categoryID = req.body.categoryID;            
             sequelize.sync().then(()=>{
                 model1.viewproductModel.create({
                     product_id : productID,
@@ -74,7 +66,7 @@ router.post('/tambahdataView', verifyToken, (req,res)=>{
 router.post('/editdata/procat/:id', verifyToken, (req, res) => {
     jwt.verify(req.token, 'secretkey', (err,authData)=>{
         if (err){
-            throw err;        
+            return res.status(403).json({err: err});        
         }else{                
             var updateProduct = req.body.productID
             var updateCategory = req.body.categoryID
